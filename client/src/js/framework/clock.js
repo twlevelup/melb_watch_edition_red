@@ -2,7 +2,7 @@
 
 var clock = {};
 
-clock.months = ['January', 'February', 'March', 'April', 'May', 'June', 'Jully', 'August', 'September', 'October', 'November', 'December'];
+clock.months = ['January', 'February', 'March', 'April', 'May', 'June', 'Jusly', 'August', 'September', 'October', 'November', 'December'];
 
 clock.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
