@@ -53,7 +53,7 @@ describe('The Contacts Page', function() {
 
     it('should produce the correct HTML', function() {
       contactsPage.render();
-      expect(contactsPage.$el).toContainHtml('<h1>Contacts</h1>');
+      expect(contactsPage.$el).toContainHtml('<h1>To-do List</h1>');
     });
 
     it('should render each of the contacts', function() {
