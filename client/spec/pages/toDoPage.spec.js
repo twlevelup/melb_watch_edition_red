@@ -1,6 +1,6 @@
 'use strict';
 
-var ToDoPage = require('../../src/js/pages/toDopage'),
+var ToDoPage = require('../../src/js/pages/toDoPage'),
    Router = require('../../src/js/router'),
    App = require('../../src/js/app');
 

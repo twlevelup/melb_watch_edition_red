@@ -15,13 +15,22 @@ describe('The Home Page', function() {
 
   describe('button event handlers', function() {
 
-    describe('right', function() {
+    /* describe('right', function() {
 
-      it('should take the user to the contacts page', function() {
+       it('should take the user to the contacts page', function() {
         spyOn(global.App, 'navigate');
         homePage.setButtonEvents();
         homePage.trigger('right');
         expect(global.App.navigate).toHaveBeenCalledWith('contacts');
+      });
+    }); */
+
+    describe('right', function() {
+      it('should take the user to the ToDo list page', function() {
+        spyOn(global.App, 'navigate');
+        homePage.setButtonEvents();
+        homePage.trigger('right');
+        expect(global.App.navigate).toHaveBeenCalledWith('toDo');
       });
     });
 
