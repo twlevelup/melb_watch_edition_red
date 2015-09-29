@@ -3,7 +3,8 @@
 var AppRouter = require('../src/js/router.js'),
   PageView = require('../src/js/framework/page'),
   HomePage = require('../src/js/pages/homePage'),
-  ContactPage = require('../src/js/pages/contactsPage');
+  ContactPage = require('../src/js/pages/contactsPage'),
+  ToDoPage = require('../src/js/pages/toDoPage');
 
 describe('Application Router', function() {
 
@@ -31,6 +32,15 @@ describe('Application Router', function() {
         expect(isContactPage).toBeTruthy();
       });
     });
+
+    describe('#toDo',function(){
+      it('should load toDo screen',function(){
+         router.toDo();
+         var isToDoPage = router.renderView.calls.argsFor(0)[0] instanceof ToDoPage;
+         expect(isToDoPage).toBeTruthy();
+      });
+   });
+
 
   });
 
