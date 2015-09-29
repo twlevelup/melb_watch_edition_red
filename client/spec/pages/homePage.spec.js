@@ -26,7 +26,7 @@ describe('The Home Page', function() {
     }); */
 
     describe('right', function() {
-      it('should take the user to the ToDo list page', function(){
+      it('should take the user to the ToDo list page', function() {
         spyOn(global.App, 'navigate');
         homePage.setButtonEvents();
         homePage.trigger('right');

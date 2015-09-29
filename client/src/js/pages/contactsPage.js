@@ -29,9 +29,9 @@ var ContactsView = PageView.extend({
   // TODO use jquery to load a JSON file async test?
   seedContacts: function() {
     this.contactsCollection.push([
-      {t_task: 'Clean floor', t_status: 'Done'},
-      {t_task: 'Something important', t_status: 'Not done'},
-      {t_task: 'Something not so important', t_status: 'Not one'}
+      {T_TASK: 'Clean floor', T_STATUS: 'Done'},
+      {T_TASK: 'Something important', T_STATUS: 'Not done'},
+      {T_TASK: 'Something not so important', T_STATUS: 'Not one'}
     ]);
   },
 
