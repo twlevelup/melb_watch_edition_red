@@ -4,7 +4,7 @@ var PageView = require('../framework/page');
 
 var toDoScreen = PageView.extend({
 
-  id: 'home',
+  id: 'toDo',
 
   template: require('../../templates/pages/toDo.hbs'),
 
