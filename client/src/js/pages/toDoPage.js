@@ -27,18 +27,42 @@ var toDoScreen = PageView.extend({
   },
 
   // TODO use jquery to load a JSON file async test?
+  /* Pushes sample tasks which gets  pushed to firebase.
+     Need a way to branch sub tasks.
+     Need to load existing tasks from firebase by pulling JSON objects */
   seedtodo: function() {
     this.todoCollection.push([
-      {T_TASK: 'Clean floor', T_STATUS: '1'},
-      {T_TASK: 'Something important', T_STATUS: '2'},
-      {T_TASK: 'Something not so important', T_STATUS: '3'}
+      {T_TASK: 'Fill the box-flattener', T_STATUS: '1'},
+      {T_TASK: 'Fill the delivery trucks', T_STATUS: '1'},
+      {T_TASK: 'Calibrate the back office', T_STATUS: '1'},
+      {T_TASK: 'Empty the floors', T_STATUS: '1'},
+      {T_TASK: ' + very large task', T_STATUS: '1'},
+      {T_TASK: 'Check the box-flattener', T_STATUS: '1'},
+      {T_TASK: 'Calibrate the box-flattener', T_STATUS: '1'},
+      {T_TASK: 'Move the floors', T_STATUS: '1'},
+      {T_TASK: 'Service the box-flattener', T_STATUS: '1'},
+      {T_TASK: 'Calibrate the printers', T_STATUS: '1'},
+      {T_TASK: ' + Black and White Printer', T_STATUS: '1'},
+      {T_TASK: ' + Colour Printer', T_STATUS: '1'},
+      {T_TASK: ' + Laser Printer', T_STATUS: '1'},
+      {T_TASK: ' + Fax Machine', T_STATUS: '1'},
+      {T_TASK: 'Service the floors', T_STATUS: '1'},
+      {T_TASK: 'Fill the back office', T_STATUS: '1'},
+      {T_TASK: 'Calibrate the delivery trucks', T_STATUS: '1'},
+      {T_TASK: 'Move the floors', T_STATUS: '1'},
+      {T_TASK: 'Empty the conveyor belts', T_STATUS: '1'},
+      {T_TASK: 'Clean the delivery Trucks', T_STATUS: '1'},
+      {T_TASK: 'Empty the printers', T_STATUS: '1'},
+      {T_TASK: 'Clean the floors', T_STATUS: '1'},
+      {T_TASK: ' + Very large task', T_STATUS: '1'}
     ]);
   },
 
-  screenClickExample: function() {
-    this.$el.html('<div>Oh noes!</div>');
-  },
-
+  /* Tap into the watch screen event goes here
+    screenClickExample: function() {
+      this.$el.html('<div>Oh noes!</div>');
+    },
+*/
   goToHomePage: function() {
     global.App.navigate('');
   },
