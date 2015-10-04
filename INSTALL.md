@@ -33,4 +33,4 @@ grunt
 
 **When the prompt appears select "Start your development environment"**
 
-You should now be able to view the demo Proto Watch app in your browser at http://localhost:9001.
+You should now be able to view the demo Proto Watch app in your browser at http://localhost:9001. 1
