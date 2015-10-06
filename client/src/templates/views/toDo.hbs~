@@ -1,8 +1,0 @@
-<!--
-<span>Task: {{t_task}}</span><br />
-<span>Status: {{t_status}}</span>
--->
-
-<button type="button" class="toDoButton btn btn-default">{{t_task}}</button>
-
-
