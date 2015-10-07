@@ -1,6 +1,50 @@
-<!--
-<span>Task: {{T_TASK}}</span><br />
-<span>Status: {{t_status}}</span>
--->
+<button type="button" id={{T_TASK_ID}} class="toDoButton btn btn-default">
+   <input id="taskId" type=hidden>{{T_TASK_ID}}</input>
+   <span>{{T_TASK}}</span>
+   <span class="tasktype" id='{{T_TASK_ID}}_taskType' >{{T_TASK_TYPE}}</span>
+   <span id='{{T_TASK_ID}}_taskStatus' >{{T_STATUS}}</span>
 
-<button type="button" class="toDoButton btn btn-default">{{T_TASK}}</button>
+</button>
+
+<script>
+
+   $("#"+{{T_TASK_ID}}).click(function(){
+
+      // Getting the task ID
+      var id = $(this).attr('id');
+
+      // getting the ID of the taskType of this particular button
+      var taskType = id+"_taskType";
+      var type = document.getElementById(taskType).innerHTML; //Type of status
+
+
+      //getting thet ID of the taskStatus for this particular button
+      var taskStatusId = id+"_taskStatus";
+      //getting the number and
+      taskStatus = Number(document.getElementById(taskStatusId).innerHTML);
+      element = document.getElementById(taskStatusId);
+
+      if(type == 'SMALL_TASK'){
+         if(taskStatus == '0'){
+            // Need to Update Status
+            element.innerHTML = "1";
+            $("#"+id).css("background-color","green");
+         }
+      }else {
+         if(taskStatus >=4)
+            return;
+
+         taskStatus +=1;
+         if(taskStatus >=0 && taskStatus<4){
+            // Need to Update Status
+            $("#"+id).css("background-color","orange");
+         }else if(taskStatus == 4){
+            $("#"+id).css("background-color","green");
+         }
+         element.innerHTML = taskStatus;
+      }
+
+   });
+
+
+</script>

@@ -1,9 +1,14 @@
 .toDoButton{
-	height: 50px;
+	height: 100px;
 	width: 100%;
 	background-color: pink;
 }
 
 .toDoButton:active{
 	background-color:red;
+}
+
+.toDoListUl{
+
+	list-style-type: none;
 }
