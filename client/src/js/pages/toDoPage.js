@@ -63,6 +63,8 @@ var toDoScreen = PageView.extend({
       this.$el.html('<div>Oh noes!</div>');
     },
 */
+
+
   goToHomePage: function() {
     global.App.navigate('');
   },
@@ -88,7 +90,6 @@ var toDoScreen = PageView.extend({
       });
       return view.render().el;
     }
-
 }
 );
 

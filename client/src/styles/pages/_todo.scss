@@ -1,14 +1,144 @@
+.button_text{
+	height:100%;
+}
+
 .toDoButton{
 	height: 100px;
 	width: 100%;
-	background-color: pink;
+	background-color: #E9E3E3;
+
+}
+.toDoButton_notDone{
+	//height: 100px;
+	//width: 100%;
+	background-color: #E9E3E3;
 }
 
-.toDoButton:active{
-	background-color:red;
+.toDoButton_onGoing{
+	background-color: #FEE1A6;
 }
 
-.toDoListUl{
+.toDoButton_done{
+	background-color: #D5F6A7;
+}
 
-	list-style-type: none;
+.toDoButton_big{
+	height:150px;
+}
+.toDoButton_notDone_big{
+	border-style:solid;
+	border-width: 10px;
+}
+
+
+.imageLogo{
+	width: 150px;
+	padding-left: 35px;
+}
+
+.whitespace{
+	height: 20px;
+	width:10px
+}
+
+.title_logo{
+	color: #808080;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 30px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	text-align: center;
+	margin :0px;
+	margin-right:20px;
+}
+
+.transition_1{
+	background-image:url("/images/transition_1.1.1.png");
+	height:150px;
+	background-size:225px;
+	background-repeat:no-repeat;
+
+	padding-top: 40px;
+    text-align: center;
+	 padding-right:10px;
+}
+
+.transition_1_body{
+	background-color:#ffa6a6;
+	width:225px;
+	color:white;
+	padding:0;
+	margin:0;
+}
+
+.subTitle{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	margin-top:30px;
+}
+
+.instruction{
+	padding:0;
+	margin:0;
+}
+
+
+/* Section 2 */
+
+.transition_2{
+	background-image:url("/images/transition_2.png");
+	height:100px;
+	width:214.5px;
+	background-color:#FCA6A6;
+	background-size:225px;
+	background-repeat:no-repeat;
+
+	padding-top: 40px;
+    text-align: center;
+	 padding-right:10px;
+}
+
+
+.subTitle_2{
+	color:#FF8A86;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	margin-top:30px;
+	margin-left:15px;
+	font-size:25px;
+}
+
+.task_p{
+	text-align: center;
+	font-weight: bold;
+	margin:0px;
+	font-size:20px;
+}
+
+.task_id{
+	text-align:left;
+	margin:0px;
+	margin-left:10px;
+	margin-top:10px;
+}
+
+.task_type_warning{
+	text-align:center;
+	margin:0px;
+}
+
+
+.button_text{
+//.task_p{
+	margin:0px;
+	text-align: left;
+//	margin-left:10px;
+	color:#6F6565;
+//	margin-top:20px;
+}
+.button_onGoing_text{
+	color:#C86639;
+}
+.button_done_text{
+	color:#68B67D;
 }

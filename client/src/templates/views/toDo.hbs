@@ -1,26 +1,60 @@
-<button type="button" id={{T_TASK_ID}} class="toDoButton btn btn-default">
-   <input id="taskId" type=hidden>{{T_TASK_ID}}</input>
-   <span>{{T_TASK}}</span>
-   <span class="tasktype" id='{{T_TASK_ID}}_taskType' >{{T_TASK_TYPE}}</span>
-   <span id='{{T_TASK_ID}}_taskStatus' >{{T_STATUS}}</span>
+
+
+<button type="button" id={{T_TASK_ID}} class="toDoButton btn btn-default ">
+
+   <div class="button_text" id="{{T_TASK_ID}}_button_text">
+      <div id="{{T_TASK_ID}}_taskType_warning">
+         <!-- Warning what type of task it is -->
+      </div>
+
+      <div class="col-md-8 ">
+         <p class="task_id">ID:{{T_TASK_ID}}</p>
+      </div>
+
+      <div class="col-md-8">
+         <p class="task_p" >{{T_TASK}}</p>
+      </div>
+
+      <div id="{{T_TASK_ID}}_percentage">
+         <!-- add the percentage here -->
+      </div>
+   </div>
+
+   <span style="display:none;" class="tasktype" id='{{T_TASK_ID}}_taskType' >{{T_TASK_TYPE}}</span>
+   <span style="display:none;" id="{{T_TASK_ID}}_taskStatus" >{{T_STATUS}}</span>
 
 </button>
 
+
 <script>
 
+   var type = document.getElementById({{T_TASK_ID}} + "_taskType").innerHTML; //Type of status
+
+   /* Size of button depends on the task type (SMALL_TASK || BIG_TASK || PARENT_TASK)*/
+   if(type == 'BIG_TASK'){
+      $("#"+{{T_TASK_ID}}).addClass( "toDoButton_big" );
+      $( "#"+{{T_TASK_ID}}+"_taskType_warning" ).prepend( "<p class='task_type_warning' >Big Task</p>" );
+      var percentage = {{T_STATUS}}*25;
+      $("#"+{{T_TASK_ID}}+"_percentage").append( '<p class="task_p" id="{{T_TASK_ID}}_taskStatus_percentage" >'+percentage+'%</p>');
+   }
+
+/*    Changing the To Do state    */
    $("#"+{{T_TASK_ID}}).click(function(){
 
       // Getting the task ID
-      var id = $(this).attr('id');
-
+      //var id = $(this).attr('id');
+      var id = {{T_TASK_ID}};
       // getting the ID of the taskType of this particular button
       var taskType = id+"_taskType";
       var type = document.getElementById(taskType).innerHTML; //Type of status
 
-
       //getting thet ID of the taskStatus for this particular button
       var taskStatusId = id+"_taskStatus";
-      //getting the number and
+
+      /*
+         To get the status. We need to change taskStatus to {{T_TASK_STATUS}}
+         but we need be able to update the database. I'm unsure how yet
+      */
       taskStatus = Number(document.getElementById(taskStatusId).innerHTML);
       element = document.getElementById(taskStatusId);
 
@@ -28,20 +62,26 @@
          if(taskStatus == '0'){
             // Need to Update Status
             element.innerHTML = "1";
-            $("#"+id).css("background-color","green");
+            $("#"+id).addClass( "toDoButton_done" );
+            $("#"+{{T_TASK_ID}}+"_button_text").addClass("button_done_text");
          }
       }else {
+
          if(taskStatus >=4)
             return;
 
          taskStatus +=1;
          if(taskStatus >=0 && taskStatus<4){
             // Need to Update Status
-            $("#"+id).css("background-color","orange");
+            $("#"+id).addClass( "toDoButton_onGoing" );
+            $("#"+{{T_TASK_ID}}+"_button_text").addClass("button_onGoing_text");
          }else if(taskStatus == 4){
-            $("#"+id).css("background-color","green");
+            $("#"+id).addClass( "toDoButton_done" );
+            $("#"+{{T_TASK_ID}}+"_button_text").addClass("button_done_text");
          }
          element.innerHTML = taskStatus;
+         var percentage= (taskStatus * 25);
+         $( "#"+{{T_TASK_ID}}+"_taskStatus_percentage" ).html( percentage+"%" );
       }
 
    });

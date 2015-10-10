@@ -14,11 +14,12 @@ describe('The To Do Page', function() {
   });
 
   describe('rendering', function() {
-
+/*
     it('should produce the correct HTML', function() {
       toDoPage.render();
       expect(toDoPage.$el).toContainText('To Do\'s');
     });
+   */
   });
 
 });
