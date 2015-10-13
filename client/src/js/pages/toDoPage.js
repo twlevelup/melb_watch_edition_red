@@ -22,8 +22,8 @@ var toDoScreen = PageView.extend({
 
     this.todoCollection = new TodoCollection();
     this.listenTo(this.todoCollection, 'change', this.render);
-
-    self.seedtodo();
+    //this.todoCollection.clear()
+    //self.seedtodo();
   },
 
   // TODO use jquery to load a JSON file async test?
@@ -63,7 +63,6 @@ var toDoScreen = PageView.extend({
       this.$el.html('<div>Oh noes!</div>');
     },
 */
-
 
   goToHomePage: function() {
     global.App.navigate('');

@@ -15,16 +15,82 @@
 
 </div>
 
+<script>
+
+/*    Changing the To Do state    */
+   $(".toDoButton").click(function(){
+
+      // Getting the task ID
+      var id = $(this).attr('id');
+      //var id = {{T_TASK_ID}};
+      // getting the ID of the taskType of this particular button
+      var taskType = id+"_taskType";
+      var type = document.getElementById(taskType).innerHTML; //Type of status
+
+      //getting thet ID of the taskStatus for this particular button
+      var taskStatusId = id+"_taskStatus";
+
+      /*
+         To get the status. We need to change taskStatus to {{T_TASK_STATUS}}
+         but we need be able to update the database. I'm unsure how yet
+      */
+      taskStatus = Number(document.getElementById(taskStatusId).innerHTML);
+      element = document.getElementById(taskStatusId);
+
+      if(type == 'SMALL_TASK'){
 
 
-<!--div class="transition_1_body">
-   <p class="instruction">Instruction one   </p>
-   <p class="instruction">instruction two</p>
-</div-->
+          console.log("eriouhtewruyghoesryghoiseurgyiserug");
 
-<!--
+         if(taskStatus == '0'){
+            // Need to Update Status
+            element.innerHTML = "1";
+            $("#"+id).removeClass("toDoButton_notDone").addClass( "toDoButton_done" );
+            $("#"+id+"_button_text").removeClass("button_notDone_text").addClass("button_done_text");
+        } else {
+            element.innerHTML = "0";
+            $("#"+id).removeClass("toDoButton_done").addClass( "toDoButton_notDone" );
+            $("#"+id+"_button_text").removeClass("button_done_text").addClass("button_notDone_text");
+        }
+      }else {
 
-<ul class="toDoListUl"></ul>
 
-<h1 style="display:none;">To Do's</h1>
--->
+
+         if(taskStatus >=4){
+            taskStatus =0;
+
+        }else{
+            console.log(id+"inside Else");
+
+            taskStatus +=1;
+        }
+
+        if(taskStatus == 0){
+
+            console.log(id+"if taskSttus == 0");
+
+            $("#"+id).removeClass("toDoButton_onGoing toDoButton_done").addClass( "toDoButton_notDone" );
+            $("#"+id+"_button_text").removeClass("button_onGoing_text button_done_text").add("button_notDone_text");
+        }else if(taskStatus >0 && taskStatus<4){
+
+            console.log(id+"if taskSttus == 0< here > 4");
+
+
+            // Need to Update Status
+            $("#"+id).removeClass("toDoButton_notDone toDoButton_done").addClass( "toDoButton_onGoing" );
+            $("#"+id+"_button_text").removeClass("button_notDone_text button_done_text").addClass("button_onGoing_text");
+         }else if(taskStatus == 4){
+             console.log(id+"if taskSttus == 4");
+
+            $("#"+id).removeClass("toDoButton_onGoing").addClass( "toDoButton_done" );
+            $("#"+id+"_button_text").removeClass("button_onGoing_text").addClass("button_done_text");
+         }
+         element.innerHTML = taskStatus;
+         var percentage= (taskStatus * 25);
+         $( "#"+id+"_taskStatus_percentage" ).html( percentage+"%" );
+      }
+
+   });
+
+
+</script>
