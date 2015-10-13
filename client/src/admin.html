@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<form>
+			Task ID: AUTO-GENERATED<br>
+			Task name: <input type="text" name"task_name"><br>
+			Task type: <form>
+							<input type="radio" name="task_type" value="Small">Small
+							<input type="radio" name="task_type" value="Big">Big<br>
+						</form>
+			<br>
+			<input id="submit_new_task" onclick="submitNewTask()" type="submit" value="Submit new task">
+			<script>
+				var firebaseRef = new Firebase("http<firebaseurl");
+
+				// https://www.firebase.com/docs/web/quickstart.html
+
+				function submitNewTask(){
+					alert("New task submmitted!");
+				}
+			</script>
+		</form>
+	</body>
+</html>
