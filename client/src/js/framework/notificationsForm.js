@@ -9,6 +9,13 @@ var NotificationsPanel = Backbone.View.extend({
 
   ACTION_SELECT_SELECTOR: 'select[name="notification_action"]',
   MESSAGE_TEXTAREA_SELECTOR: 'textarea[name="notification_message"]',
+
+  /**** Edited ******/
+  ID_NUMBER_TEXTAREA_SELECTOR: 'textarea[name="id_number_message"]',
+  TASK_DESCRIPTION_TEXTAREA_SELECTOR: 'textarea[name="task_discription_message"]',
+
+  /**** Edited *****/
+
   SEND_BUTTON_SELECTOR: '#button-sendNotification',
 
   NOTIFICATION_POPUP_SELECTOR: '#notification_popup',

@@ -6,4 +6,11 @@ var Todos = Backbone.Firebase.Collection.extend({
   url: Config.firebaseUrl + '/Todos'
 });
 
+
+/* Change */
+var IdNum = Backbone.Firebase.Collection.extend({
+  model: IdNum,
+  url: Config.firebaseUrl + '/IdNum'
+});
+
 module.exports = Todos;

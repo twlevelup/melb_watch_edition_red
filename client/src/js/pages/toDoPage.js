@@ -14,7 +14,8 @@ var toDoScreen = PageView.extend({
   buttonEvents: {
     right: 'goToHomePage',
     face: 'screenClickExample',
-    left: 'back'
+    left: 'back',
+    top:'submitDone'
   },
 
   initialize: function() {
@@ -25,6 +26,8 @@ var toDoScreen = PageView.extend({
     //this.todoCollection.clear()
     //self.seedtodo();
   },
+
+
 
   // TODO use jquery to load a JSON file async test?
   /* Pushes sample tasks which gets  pushed to firebase.
@@ -63,6 +66,11 @@ var toDoScreen = PageView.extend({
       this.$el.html('<div>Oh noes!</div>');
     },
 */
+
+ submitDone: function(){
+
+        /*Send all the things with the thing again and again URGH I DUN KNOW*/
+ },
 
   goToHomePage: function() {
     global.App.navigate('');

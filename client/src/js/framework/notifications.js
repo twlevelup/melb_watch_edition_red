@@ -1,4 +1,5 @@
 'use strict';
+var TodoCollection = require('../collections/todos');
 
 var NotificationsPanel = Backbone.View.extend({
 
@@ -9,6 +10,14 @@ var NotificationsPanel = Backbone.View.extend({
 
   ACTION_SELECT_SELECTOR: 'select[name="notification_action"]',
   MESSAGE_TEXTAREA_SELECTOR: 'textarea[name="notification_message"]',
+
+  /**** Edited *****/
+
+  ID_NUMBER_TEXTAREA_SELECTOR:'textarea[name="id_number_message"]',
+  TASK_DESCRIPTION_TEXTAREA_SELECTOR: 'textarea[name="task_discription_message"]',
+
+  /**** Edited *****/
+
   SEND_BUTTON_SELECTOR: '#button-sendNotification',
 
   NOTIFICATION_POPUP_SELECTOR: '#notification_popup',
@@ -51,19 +60,50 @@ var NotificationsPanel = Backbone.View.extend({
   },
 
   _sendNotification: function(event) {
+      /*This Gets the drop down box*/
     var notificationAction = this.$(this.ACTION_SELECT_SELECTOR).val(),
-      notificationMessage = this.$(this.MESSAGE_TEXTAREA_SELECTOR).val(),
-      selectedNotificationType = _.findWhere(this.notificationsArray, {name: notificationAction});
+      /*This Gets the text box*/
+      //notificationMessage = this.$(this.MESSAGE_TEXTAREA_SELECTOR).val(),
+      selectedNotificationType = _.findWhere(this.notificationsArray, {name: notificationAction}),
+
+      taskId = this.$(this.ID_NUMBER_TEXTAREA_SELECTOR).val(),
+      task = this.$(this.TASK_DESCRIPTION_TEXTAREA_SELECTOR).val();
+
+      /****** Edited *******/
+
+      /* This is where we should send the thing to the database */
+      var taskType, notificationMessage;
+      if(notificationAction === "Normal Task"){
+          taskType = "SMALL_TASK";
+      }else {
+          taskType = "BIG_TASK";
+      }
+
+      this.todoCollection = new TodoCollection();
+
+      this.seedtodo(taskId, task, taskType);
+
+      /****** Edited *******/
+
+      notificationMessage = taskId + taskType+ task;
 
     this.showNotification(selectedNotificationType, notificationMessage);
+  },
+
+  seedtodo: function(taskId, task, taskType) {
+
+    this.todoCollection.push([
+        {T_TASK_ID:taskId,T_TASK: task, T_STATUS: '0',T_TASK_TYPE:taskType}
+    ]);
   },
 
   showNotification: function(selectedNotificationType, notificationMessage) {
     if (!selectedNotificationType) {
       return;
     }
-
+    /*Popup Box*/
     $(this.NOTIFICATION_POPUP_SELECTOR).show();
+    /*The message in the box*/
     $(this.NOTIFICATION_MESSAGE_SELECTOR).text(notificationMessage);
 
     global.App.router.currentView.stopListening();

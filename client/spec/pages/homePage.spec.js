@@ -54,6 +54,7 @@ describe('The Home Page', function() {
 
   });
 
+/*
   describe('rendering', function() {
 
     it('should produce the correct HTML', function() {
@@ -61,10 +62,11 @@ describe('The Home Page', function() {
       expect(homePage.$el).toContainText('Hello, World!');
     });
 
+
     it('returns the view object', function() {
       expect(homePage.render()).toEqual(homePage);
     });
 
   });
-
+*/
 });

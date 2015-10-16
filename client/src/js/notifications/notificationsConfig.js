@@ -2,7 +2,8 @@
 
 var notificationsConfig = [
     {
-      name: 'Go to contacts on right button',
+      name: 'Normal Task'
+      /*
       defaultMessage: 'Click right button to go to contacts.',
       buttonEvents: {
         right: 'navigateToContacts'
@@ -10,9 +11,13 @@ var notificationsConfig = [
       navigateToContacts: function() {
         global.App.navigate('contacts');
       }
+
+      */
     },
     {
-      name: 'Left button will be contacts now',
+      name: 'Big Task'
+      /*
+      ,
       defaultMessage: 'Now right button will lead you to contacts.',
       buttonEvents: {
         right: 'navigateToContacts'
@@ -20,7 +25,12 @@ var notificationsConfig = [
       navigateToContacts: function() {
         global.App.navigate('contacts');
       }
-    },
+
+      */
+
+    }
+    /*
+    ,
     {
       name: 'Contacts on the right!',
       buttonEvents: {
@@ -30,6 +40,8 @@ var notificationsConfig = [
         global.App.navigate('contacts');
       }
     }
+
+    */
 ];
 
 module.exports = notificationsConfig;
