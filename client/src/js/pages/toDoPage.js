@@ -70,6 +70,7 @@ var toDoScreen = PageView.extend({
  submitDone: function(){
 
         /*Send all the things with the thing again and again URGH I DUN KNOW*/
+        global.App.navigate('finished_tasks');
  },
 
   goToHomePage: function() {
