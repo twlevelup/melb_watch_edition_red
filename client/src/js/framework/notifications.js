@@ -60,32 +60,33 @@ var NotificationsPanel = Backbone.View.extend({
   },
 
   _sendNotification: function(event) {
-      /*This Gets the drop down box*/
+    /*This Gets the drop down box*/
     var notificationAction = this.$(this.ACTION_SELECT_SELECTOR).val(),
       /*This Gets the text box*/
+
       //notificationMessage = this.$(this.MESSAGE_TEXTAREA_SELECTOR).val(),
       selectedNotificationType = _.findWhere(this.notificationsArray, {name: notificationAction}),
 
       taskId = this.$(this.ID_NUMBER_TEXTAREA_SELECTOR).val(),
       task = this.$(this.TASK_DESCRIPTION_TEXTAREA_SELECTOR).val();
 
-      /****** Edited *******/
+    /****** Edited *******/
 
-      /* This is where we should send the thing to the database */
-      var taskType, notificationMessage;
-      if(notificationAction === "Normal Task"){
-          taskType = "SMALL_TASK";
-      }else {
-          taskType = "BIG_TASK";
-      }
+    /* This is where we should send the thing to the database */
+    var taskType, notificationMessage;
+    if (notificationAction === 'Normal Task') {
+      taskType = 'SMALL_TASK';
+    }else {
+      taskType = 'BIG_TASK';
+    }
 
-      this.todoCollection = new TodoCollection();
+    //this.todoCollection = new TodoCollection();
 
-      this.seedtodo(taskId, task, taskType);
+    this.seedtodo(taskId, task, taskType);
 
-      /****** Edited *******/
+    /****** Edited *******/
 
-      notificationMessage = taskId + taskType+ task;
+    notificationMessage = taskId + taskType + task;
 
     this.showNotification(selectedNotificationType, notificationMessage);
   },

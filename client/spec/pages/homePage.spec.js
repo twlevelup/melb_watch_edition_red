@@ -54,19 +54,19 @@ describe('The Home Page', function() {
 
   });
 
-/*
-  describe('rendering', function() {
+  /*
+    describe('rendering', function() {
 
-    it('should produce the correct HTML', function() {
-      homePage.render();
-      expect(homePage.$el).toContainText('Hello, World!');
+      it('should produce the correct HTML', function() {
+        homePage.render();
+        expect(homePage.$el).toContainText('Hello, World!');
+      });
+
+
+      it('returns the view object', function() {
+        expect(homePage.render()).toEqual(homePage);
+      });
+
     });
-
-
-    it('returns the view object', function() {
-      expect(homePage.render()).toEqual(homePage);
-    });
-
-  });
 */
 });

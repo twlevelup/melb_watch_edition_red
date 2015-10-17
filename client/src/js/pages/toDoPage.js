@@ -23,11 +23,10 @@ var toDoScreen = PageView.extend({
 
     this.todoCollection = new TodoCollection();
     this.listenTo(this.todoCollection, 'change', this.render);
+
     //this.todoCollection.clear()
     //self.seedtodo();
   },
-
-
 
   // TODO use jquery to load a JSON file async test?
   /* Pushes sample tasks which gets  pushed to firebase.
@@ -67,10 +66,89 @@ var toDoScreen = PageView.extend({
     },
 */
 
- submitDone: function(){
+  submitDone: function() {
 
-        /*Send all the things with the thing again and again URGH I DUN KNOW*/
- },
+    var arr = $('.toDoButton').map(function() {return this.id;}).get();
+    var elementnts = arr.toString();
+
+    //window.alert(elementnts);
+    //window.alert(this.todoCollection.lengths)
+
+    this.todoCollection.each(function(todo) {
+      //todo.set({selected: true});
+      //console.log(todo);
+    }, this);
+
+    for (var i = 0; i < arr.length; i += 1) {
+      var status = Number(document.getElementById(arr[i] + '_taskStatus').innerHTML);
+      var task = document.getElementById(arr[i] + '_task_description').innerHTML;
+
+      //this.updateDataBase(arr[i],status,task);
+
+      /*
+               this.todoCollection.each(function(todo) {
+                   console.log(JSON.stringify(todo.T_TASK_ID));
+                  // if(todo.T_TASK_ID == arr[i])
+                      //console.log("")
+                   //todo.set({T_TASK_ID: 1, T_STATUS: 'doneee'});
+
+               }, this);
+
+              */
+
+      // todo.set({T_TASK_ID: 1, T_STATUS: 'doneee'});
+
+    }
+  },
+
+  updateDataBase: function(id,status,task) {
+
+    /*
+         this.todoCollection.each(function(todo) {
+             window.alert(JSON.stringify(todo));
+         }, this);
+
+*/
+
+    //window.alert("IN HERE "+id + ": " + status + " "+ task +" ");
+
+    //window.alert("length of collection: "+this.todoCollection.length);
+    /*
+    if(hopperRef.keys(snap.val()) == 4){
+
+
+
+    hopperRef.update({
+      "T_STATUS": "status"
+    });
+
+    }
+*/
+
+    /*
+        var ref = this.todoCollection.val();
+
+        window.alert(ref.T_TASK_ID);
+*/
+    /*
+
+         for(var i=0; i<this.todoCollection.length;i+=1){
+             window.alert("IN HERE "+id + ": " + status + " "+ task +" ");
+            window.alert("For loop ID: "+ this.todoCollection[i].T_TASK_ID);
+
+             if(this.todoCollection[i].T_TASK_ID === id){
+                 if(status === 4){
+                   this.todoCollection[i].remove();
+                   window.alert(id+": DELETED!!");
+
+               }else {
+                   this.todoCollection[i].T_STATUS = status;
+                   window.alert(id+": UPDATED! ");
+               }
+             }
+         }
+*/
+  },
 
   goToHomePage: function() {
     global.App.navigate('');
@@ -83,6 +161,7 @@ var toDoScreen = PageView.extend({
     var todoHTML = document.createDocumentFragment();
 
     this.todoCollection.each(function(todo) {
+      window.alert(JSON.stringify(todo));
       $(todoHTML).append(this.createtodoHTML(todo));
     }, this);
 
