@@ -101,7 +101,6 @@ var toDoScreen = PageView.extend({
     }
   },
 
-<<<<<<< HEAD
   updateDataBase: function(id,status,task) {
 
     /*
@@ -150,11 +149,11 @@ var toDoScreen = PageView.extend({
          }
 */
   },
-=======
         /*Send all the things with the thing again and again URGH I DUN KNOW*/
+    goToDonePage: function(){
         global.App.navigate('finished_tasks');
+
  },
->>>>>>> bb226073e8a4730cfb80a451aa6ffed03424ae70
 
   goToHomePage: function() {
     global.App.navigate('');
